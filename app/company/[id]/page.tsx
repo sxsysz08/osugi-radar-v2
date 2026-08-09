@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { companies } from "@/data/companies";
 import { getNews } from "@/lib/news";
 import NewsCard from "@/components/NewsCard";
+import ScoreGauge from "@/components/ScoreGauge";
+import AnalysisCard from "@/components/AnalysisCard";
 
 type Props = {
   params: Promise<{
@@ -101,13 +103,23 @@ export default async function CompanyPage({ params }: Props) {
             </div>
 
           </div>
+<div className="mt-8">
+  <ScoreGauge score={company.score} />
+</div>
 
-          <div className="mt-8 rounded-3xl bg-neutral-100 p-8">
+<div className="mt-8">
+<AnalysisCard
+  company={company.name}
+  score={company.score}
+  analysis={company.analysis}
+  comment={company.comment}
+/>  />
+</div>
 
-            <h2 className="text-2xl font-bold">
-              企業概要
-            </h2>
-
+<div className="mt-8 rounded-3xl bg-neutral-100 p-8">
+  <h2 className="text-2xl font-bold">
+    企業概要
+  </h2>
             <p className="mt-5 leading-8 text-neutral-600">
               {company.description}
             </p>

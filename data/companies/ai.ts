@@ -12,6 +12,14 @@ const aiCompanies = [
     industry: "AI",
     logo: "🤖",
     description: "ChatGPTを開発するAI企業。",
+    analysis: [
+      "生成AI市場を牽引",
+      "大型資金調達",
+      "世界トップクラスの知名度",
+      "IPO期待が非常に高い",
+    ],
+    comment:
+      "OpenAIは世界を代表するAI企業ですが、現時点ではIPO計画は公表されていません。",
   },
   {
     id: 202,
@@ -26,6 +34,14 @@ const aiCompanies = [
     industry: "AI",
     logo: "🧠",
     description: "Claudeを開発するAI企業。",
+    analysis: [
+      "Claudeが急成長",
+      "Amazonなどが出資",
+      "企業向け需要が拡大",
+      "IPO期待が高い",
+    ],
+    comment:
+      "Anthropicは急成長中のAI企業であり、将来的なIPO候補として注目されています。",
   },
   {
     id: 203,
@@ -40,6 +56,14 @@ const aiCompanies = [
     industry: "AI",
     logo: "❌",
     description: "Grokを開発するAI企業。",
+    analysis: [
+      "大型資金調達",
+      "Grokを開発",
+      "知名度が高い",
+      "IPO候補として注目",
+    ],
+    comment:
+      "xAIは急速に成長しているものの、IPO時期はまだ不透明です。",
   },
   {
     id: 204,
@@ -54,6 +78,14 @@ const aiCompanies = [
     industry: "AI Search",
     logo: "🔎",
     description: "AI検索サービスを提供。",
+    analysis: [
+      "AI検索市場を開拓",
+      "利用者数が増加",
+      "投資家から高評価",
+      "IPO期待あり",
+    ],
+    comment:
+      "PerplexityはAI検索分野で急成長しており、IPO候補として注目されています。",
   },
   {
     id: 205,
@@ -68,6 +100,14 @@ const aiCompanies = [
     industry: "AI",
     logo: "🇫🇷",
     description: "欧州の生成AI企業。",
+    analysis: [
+      "欧州AIの中心企業",
+      "大型資金調達",
+      "OSSモデルが人気",
+      "IPO期待あり",
+    ],
+    comment:
+      "Mistral AIは欧州を代表するAI企業として、将来的なIPOが期待されています。",
   },
 ];
 

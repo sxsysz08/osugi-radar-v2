@@ -4,22 +4,55 @@ export type News = {
   source: string;
 };
 
-export async function getNews(company: string): Promise<News[]> {
-  return [
-    {
-      title: `${company} に関する最新ニュース`,
-      url: "#",
-      source: "OSUGI Radar",
-    },
-    {
-      title: `${company} のIPO動向`,
-      url: "#",
-      source: "OSUGI Radar",
-    },
-    {
-      title: `${company} の資金調達情報`,
-      url: "#",
-      source: "OSUGI Radar",
-    },
-  ];
+type NewsApiArticle = {
+  title: string;
+  url: string;
+  source: {
+    name: string;
+  };
+};
+
+type NewsApiResponse = {
+  articles: NewsApiArticle[];
+};
+
+export async function getNews(
+  company: string
+): Promise<News[]> {
+  const apiKey = process.env.NEWS_API_KEY;
+
+  if (!apiKey) {
+    return [];
+  }
+
+  const url =
+    `https://newsapi.org/v2/everything?` +
+    `q=${encodeURIComponent(company)}` +
+    `&language=en` +
+    `&sortBy=publishedAt` +
+    `&pageSize=5` +
+    `&apiKey=${apiKey}`;
+
+  try {
+    const res = await fetch(url, {
+      next: {
+        revalidate: 1800,
+      },
+    });
+
+    if (!res.ok) {
+      return [];
+    }
+
+    const data =
+      (await res.json()) as NewsApiResponse;
+
+    return data.articles.map((article) => ({
+      title: article.title,
+      url: article.url,
+      source: article.source.name,
+    }));
+  } catch {
+    return [];
+  }
 }

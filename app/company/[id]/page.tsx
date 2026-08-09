@@ -113,7 +113,7 @@ export default async function CompanyPage({ params }: Props) {
   score={company.score}
   analysis={company.analysis}
   comment={company.comment}
-/>  />
+/>
 </div>
 
 <div className="mt-8 rounded-3xl bg-neutral-100 p-8">
